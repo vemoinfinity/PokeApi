@@ -2,6 +2,14 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  display: inline-flex;
 }
 
+.cardback{
+  background-image: url(./img/Pokemon-Card-Template.png) ;
+  background-repeat: no-repeat;
+}
+.imgpoke{
+  margin-left: 37px;
+  margin-top: 22px;
+}
