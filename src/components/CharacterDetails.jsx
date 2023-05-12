@@ -11,7 +11,6 @@ const CharacterDetail = () => {
     axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
       .then(res => setCharacter(res.data))
   }, [])
-  console.log(character)
   return (
     <div>
       <CharacterCard url={`https://pokeapi.co/api/v2/pokemon/${pokemon}`}/>     
