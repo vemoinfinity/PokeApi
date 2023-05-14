@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { Card } from 'react-bootstrap';
-
+import { Card, Col, Row } from 'react-bootstrap';
+import backpokemon from '../img/Pokemon-Card-Template.png'
 const CharacterCard = ({ url }) => {
   const [character, setCharacter] = useState({})
   useEffect(() => {
@@ -17,44 +17,51 @@ const CharacterCard = ({ url }) => {
   let abilities = character.abilities
   let stats = character.stats
   return (
-    <Card className='cardback my-5 border border-dark rounded-4' style={{  width: '420px' , height:'590px' }}>
-      <Card.Title>
-        {character.name}
+    <Card className='rounded-4' style={{ width: '300px', height: '470px' }} >
+      <Card.Img className='object-fit-cover ' src={backpokemon} />
+      <Card.ImgOverlay>
+        <Card.Title className='mx-5 px-1'>
+          <h6>{character.name}</h6>
         </Card.Title>
-      <Card.Img className='imgpoke'  style={{  width: '350px' , height:'240px' }} src={character.sprites?.other.home.front_default ?
-        character.sprites?.other.home.front_default :
-        character.sprites?.front_default} alt='' />
-        <Card.Body className='mx-2 my-1'>
-        {abilities &&
-        <div> <b>Abilitys:</b>
-          {abilities.map(abilitys => (
-            <div key={abilitys.ability.name}>
-              {abilitys.ability.name}
+        <Card.Img className='mx-3' style={{ width: '230px', height: '160px' }}
+          src={character.sprites?.other.home.front_default ?
+            character.sprites?.other.home.front_default :
+            character.sprites?.front_default} alt='' />
+        <Card.Body style={{ padding: '3px' }}>
+          <p className='mx-5 px-5' style={{fontSize:'9px', margin: '0px' }}>  
+          {heightmeters}m,
+          {weightkg}kg
+          </p>
+          {abilities &&
+            <Row>
+              <b style={{fontSize:'13px'}} >Abilitys:</b>
+              {abilities.map(abilitys => (
+                <Col lg='auto' key={abilitys.ability.name}>
+                 <p style={{fontSize:'13px',margin: '0px' }} >{abilitys.ability.name}</p> 
+                </Col>
+              ))}
+            </Row>
+          }
+          {types &&
+            <div> <b>Types:</b>
+              {types.map(type => (
+                <div key={type.type.name}>
+                  {type.type.name}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      }
-      {heightmeters}m
-      {weightkg}kg
-      {types &&
-        <div> <b>Types:</b>
-          {types.map(type => (
-            <div key={type.type.name}>
-              {type.type.name}
+          }
+          {stats &&
+            <div> <b>Stats:</b>
+              {stats.map(stas => (
+                <div key={stas.stat.name}>
+                  {stas.stat.name}:{stas.base_stat}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      }
-      {stats &&
-        <div> <b>Stats:</b>
-          {stats.map(stas => (
-            <div key={stas.stat.name}>
-              {stas.stat.name}:{stas.base_stat}
-            </div>
-          ))}
-        </div>
-      }
-      </Card.Body>
+          }
+        </Card.Body>
+      </Card.ImgOverlay>
     </Card>
   );
 };

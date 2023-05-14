@@ -5,22 +5,22 @@ import ProtectedRoutes from './components/ProtectedRoutes';
 import Characters from './components/Characters';
 import Areas from './components/Areas';
 import CharacterDetails from './components/CharacterDetails';
+import { Container } from 'react-bootstrap';
 function App() {
   return (
     <HashRouter>
 
-      <div className="App">
-
+      <Container className="App">
         <Routes>
-          <Route path="/" element={<UserLogin />}/>   
-          <Route element={<ProtectedRoutes/>}>   
-          <Route path="/characters" element={<Characters/>}/>
-          <Route path="/charactersdetail" element={<CharacterDetails/>}/>
-          <Route path="/areas" element={<Areas/>}/>
-            </Route>     
+          <Route path="/" element={<UserLogin />} />
+          <Route element={<ProtectedRoutes />}>
+            <Route path="/characters" element={<Characters />} />
+            <Route path="/charactersdetail" element={<CharacterDetails />} />
+            <Route path="/areas" element={<Areas />} />
+          </Route>
         </Routes>
 
-      </div>
+      </Container>
 
     </HashRouter>
   )
