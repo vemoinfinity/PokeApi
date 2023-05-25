@@ -8,7 +8,7 @@ import CharacterDetails from './components/CharacterDetails';
 import { Container } from 'react-bootstrap';
 function App() {
   return (
-    <HashRouter>
+    <HashRouter >
 
       <Container className="App">
         <Routes>
