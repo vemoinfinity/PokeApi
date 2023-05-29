@@ -13,11 +13,11 @@ const usePokeApi = (url) => {
   const [Pokeurl, setUrl] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=40`)
+    axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=42`)
       .then(res => setCharacters(res.data.results))
     axios.get(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=1281`)
       .then(res => setSearchTerm(res.data.results))
-    axios.get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=40')
+    axios.get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=42')
       .then(res => setPagNext(res.data.next))
     axios.get(`https://pokeapi.co/api/v2/location/`)
       .then(res => setLocationList(res.data.results))
@@ -26,7 +26,7 @@ const usePokeApi = (url) => {
   }, [])
   const urlpokeunits = `https://pokeapi.co/api/v2/pokemon/${pokemon}`
   const [pagpre, setPagPre] = useState("")
-  const [countup, setCountUp] = useState(40)
+  const [countup, setCountUp] = useState(42)
   const [countdo, setCountDo] = useState(0)
 
   const pagenext = () => {
@@ -37,8 +37,8 @@ const usePokeApi = (url) => {
         .then(res => setPagPre(res.data.previous))
       axios.get(pagnext)
         .then(res => setPagNext(res.data.next))
-      setCountUp(countup + 40)
-      setCountDo((countdo + 40))
+      setCountUp(countup + 42)
+      setCountDo((countdo + 42))
     }
     else {
       alert('erros ya no hay mas paginas')
@@ -52,8 +52,8 @@ const usePokeApi = (url) => {
         .then(res => setPagNext(res.data.next))
       axios.get(pagpre)
         .then(res => setPagPre(res.data.previous))
-      setCountUp(countup - 40)
-      setCountDo((countdo - 40))
+      setCountUp(countup - 42)
+      setCountDo((countdo - 42))
     }
     else {
       alert('erros ya no hay mas paginas')

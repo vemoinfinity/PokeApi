@@ -11,18 +11,18 @@ const StatsPoke = (data) => {
   let speed = (data.data[5]?.base_stat)
   return (
     <div className='progre'>
-      <Card.Img style={{ width: '25px', height: '25px' }} src={Timg.Heart.img} />
-      <Card.Img style={{ width: '25px', height: '25px' }} src={Timg.Sword.img} />
-      <Card.Img style={{ width: '25px', height: '25px' }} src={Timg.SAttack.img} />
-      <Card.Img style={{ width: '25px', height: '25px' }} src={Timg.Shield.img} />
-      <Card.Img style={{ width: '25px', height: '25px' }} src={Timg.SShield.img} />
-      <Card.Img style={{ width: '25px', height: '25px' }} src={Timg.Speed.img} />
-      <ProgressBar animated variant='heart' style={{ height: '8px', marginBottom: '3px' }} now={hp} label={`${hp}`} />
-      <ProgressBar animated variant='sword' style={{ height: '8px', marginBottom: '3px' }} now={attack} label={`${attack}`} />
-      <ProgressBar animated variant='sattck' style={{ height: '8px', marginBottom: '3px' }} now={s_attack} label={`${s_attack}`} />
-      <ProgressBar animated variant='shield' style={{ height: '8px', marginBottom: '3px' }} now={defense} label={`${defense}`} />
-      <ProgressBar animated variant='sshield' style={{ height: '8px', marginBottom: '3px' }} now={s_defense} label={`${s_defense}`} />
-      <ProgressBar animated variant='speed' style={{ height: '8px', marginBottom: '3px' }} now={speed} label={`${speed}`} />
+      <Card.Img style={{ width: '25px', height: '25px',marginLeft:'10px',marginRight:'10px' }} src={Timg.Heart.img} />
+      <Card.Img style={{ width: '25px', height: '25px' ,marginLeft:'10px',marginRight:'10px'}} src={Timg.Sword.img} />
+      <Card.Img style={{ width: '25px', height: '25px',marginLeft:'10px',marginRight:'10px' }} src={Timg.SAttack.img} />
+      <Card.Img style={{ width: '25px', height: '25px',marginLeft:'10px',marginRight:'10px' }} src={Timg.Shield.img} />
+      <Card.Img style={{ width: '25px', height: '25px',marginLeft:'10px',marginRight:'10px' }} src={Timg.SShield.img} />
+      <Card.Img style={{ width: '25px', height: '25px',marginLeft:'10px',marginRight:'10px' }} src={Timg.Speed.img} />
+      <ProgressBar animated variant='heart' style={{ height: '8px', marginBottom: '3px',marginLeft:'4px',marginRight:'4px' }} now={hp} label={`${hp}`} />
+      <ProgressBar animated variant='sword' style={{ height: '8px', marginBottom: '3px',marginLeft:'4px',marginRight:'4px' }} now={attack} label={`${attack}`} />
+      <ProgressBar animated variant='sattck' style={{ height: '8px', marginBottom: '3px',marginLeft:'4px',marginRight:'4px' }} now={s_attack} label={`${s_attack}`} />
+      <ProgressBar animated variant='shield' style={{ height: '8px', marginBottom: '3px',marginLeft:'4px',marginRight:'4px' }} now={defense} label={`${defense}`} />
+      <ProgressBar animated variant='sshield' style={{ height: '8px', marginBottom: '3px',marginLeft:'4px',marginRight:'4px' }} now={s_defense} label={`${s_defense}`} />
+      <ProgressBar animated variant='speed' style={{ height: '8px', marginBottom: '3px',marginLeft:'4px',marginRight:'4px' }} now={speed} label={`${speed}`} />
     </div>
   );
 };

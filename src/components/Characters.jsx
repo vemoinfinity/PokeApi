@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import CharacterCard from './CharacterCard';
 import { Button, CardGroup, Col, Container, Dropdown, Form, ListGroup, Pagination, Row } from 'react-bootstrap';
 import usePokeApi from '../hooks/usePokeApi';
-import useSearchNavi from '../hooks/useSearchNavi';
-import backpokemon from '../img/PNG-Pokemon-trading-card-template-free-printable-BACK.webp'
+import useSearchNavi from '../hooks/useSearchNavi';             
 import { useForm } from 'react-hook-form';
+
 
 const Characters = () => {
   const name = useSelector(state => (state.userName))
@@ -13,9 +13,9 @@ const Characters = () => {
   const { searchName, searchLocation, pokeDetails } = useSearchNavi()
   const { register, formState: { errors }, handleSubmit, } = useForm();
   return (
-    <Container>
+    <Container className='mt-4'>
+      <h1>welcome to pokemon library</h1>
       <Row>
-        <h1>welcome {name} </h1>
         <Col lg='auto'>
           <Form className="mb-3" onSubmit={handleSubmit(searchName)}>
             <Form.Control
@@ -32,7 +32,7 @@ const Characters = () => {
               <option>Seleccionar</option>
               {searchTerm.map(location => (
                 <option value={location.name} key={location.url}>{location.name}</option>
-              ))}
+                ))}
             </datalist>
           </Form>
           <ListGroup className='m-3'>
@@ -52,7 +52,7 @@ const Characters = () => {
           </ListGroup>
         </Col>
         <Col>
-          <Pagination  >
+          <Pagination className='d-flex m-auto mb-2' style={{width:'600px'}} >
             <Pagination.Prev onClick={pageprev} />
             <Pagination.Item className='text-center' style={{ width: "100%" }} active >Pokemons {countdo ? countdo : 1} to {countup} </Pagination.Item>
             <Pagination.Next onClick={pagenext} />
@@ -60,8 +60,8 @@ const Characters = () => {
           <Row className='d-flex justify-content-center'>
             {
               characters.map(character => (
-                <Col className='' xs='auto' lg='auto' key={character.url ? character.url : character}>
-                  <CardGroup className='hola ' style={{ width: '300px', height: '440px' }}
+                <Col  xs='auto' lg='auto' key={character.url ? character.url : character}>
+                  <CardGroup className='hola' style={{ width: '300px', height: '440px' }}
                     onClick={() => pokeDetails(character.name)}>
                     <CharacterCard
                       url={character.url ? character.url : character} />
@@ -70,7 +70,7 @@ const Characters = () => {
               ))
             }
           </Row>
-        </Col>
+        </Col>                   
       </Row>
     </Container>
   );

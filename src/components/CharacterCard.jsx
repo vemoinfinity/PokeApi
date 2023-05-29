@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { Card } from 'react-bootstrap';
+import { Card, CardImg } from 'react-bootstrap';
 import backpokemon from '../img/Pokemon-Card.webp'
 import StatsPoke from './StatsPoke';
 import AbilitiesPoke from './AbilitiesPoke';
@@ -28,22 +28,25 @@ const CharacterCard = ({ url }) => {
     }, 100);
   }
   return (
-    <Card className='rounded-4 rotate-horizontal-center' style={{ width: '300px', height: '420px' }} >
-      <Card.Img  className='object-fit-cover ' src={backpokemon} style={{ backgroundColor: `var(--${datos1})` }} />
-      <Card.ImgOverlay className='' style={{ paddingTop: '11px' }}>
+    <Card className='rounded-5 rotate-horizontal-center' style={{ width: '300px', height: '420px' }} >
+      <Card.Img className=' object-fit-cover rounded-5 ' src={backpokemon} style={{ backgroundColor: `var(--${datos1})` }} />
+      <Card.ImgOverlay style={{ paddingTop: '11px' }}>
         <Card.Title className='d-flex justify-content-end' style={{ marginBottom: '1px' }}>
-          <p className='mx-5 px-2' style={{ fontSize: '13px', margin: '0px', paddingTop: '6px' }}>{character.name}</p>
+          <p className='text-center flex-grow-1' style={{ fontSize: '13px', margin: '0px', paddingTop: '6px' }}>{character.name}</p>
           {types &&
             types.map(typ => (
               <TypePo key={typ.type.name} data={typ.type.name} type={colorT} />
-            ))
-          }
+              ))
+            }
         </Card.Title>
-        <Card.Img className='mx-3' style={{ width: '230px', height: '160px' }}
+            <Card.Img src='../src/img/backpokecard.jpg' style={{ width: '241px', height: '154px',marginTop:'9px',marginLeft:'20px',borderRadius:'55px',borderStyle:'inset',borderColor:`var(--${datos1})` }}/>
+        <Card.ImgOverlay>
+        <Card.Img className='m-5' style={{ width: '230px', height: '160px'}}
           src={character.sprites?.other.home.front_default ?
             character.sprites?.other.home.front_default :
             character.sprites?.front_default} alt='imag pokemon disable' />
-        <p className='d-flex justify-content-center' style={{ fontSize: '9px', margin: '0px', marginTop: '5px' }}>
+            </Card.ImgOverlay>
+        <p className='  d-flex justify-content-center' style={{ fontSize: '9px', margin: '0px', marginTop: '3px' }}>
           HT:{heightmeters}m,WT:{weightkg}kg
         </p>
         <Card.Body className='d-flex' style={{ padding: '3px' }}>

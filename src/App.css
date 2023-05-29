@@ -23,7 +23,19 @@
   --ground: #E9D6A4;
   --poison: #B058A0;
   --flying: #98A8F0;
-  
+}
+html{
+  background-image: url('./img/city.jpg');
+  background-repeat: round;
+}
+#root{
+  background-image: url('./img/city.jpg');
+  background-repeat: round;
+}
+h1{
+  font-size: 55px !important;
+  color:white;
+  text-align: center;
 }
 
 .bg-heart {
@@ -128,7 +140,7 @@
 
 @keyframes rotate-horizontal-center {
   0% {
-    transform: rotateX(-180deg);
+    transform: rotateX(-90deg);
   }
   
   100% {
@@ -165,12 +177,4 @@
   100% {
     transform: rotateX(-360deg)
   }
-}
-.ola:hover{
-  background-image: url('./img/PNG-Pokemon-trading-card-template-free-printable-BACK.webp');
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 1
 }

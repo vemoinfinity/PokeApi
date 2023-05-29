@@ -11,7 +11,7 @@ const DescriptionPoke = ({ url }) => {
 
   return (
     <div>
-      {character.name}
+    <h2>{character.name}</h2>  
       {effect_entries &&
         effect_entries.map(effects => (
           <div key={effects.effect}>
