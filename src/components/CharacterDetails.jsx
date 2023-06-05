@@ -22,8 +22,8 @@ const CharacterDetail = () => {
   return (
     <Container className='m-auto mt-3'>
       <ThemeSup />
-    <Row>
-      <div className="pokegrid" style={{ backgroundColor: `var(--${datos1})` }}>
+
+      <Row className="pokegrid" style={{ backgroundColor: `var(--${datos1})` }}>
         <Card.Img src='../src/img/pokeback.webp' />
         <Card.ImgOverlay>
           <Row xs={2}>
@@ -55,7 +55,7 @@ const CharacterDetail = () => {
             </Col>
           </Row>
         </Card.ImgOverlay>
-      </div>
+
       </Row>
       <ThemeBot />
     </Container>
