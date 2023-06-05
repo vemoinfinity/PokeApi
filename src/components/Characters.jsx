@@ -52,7 +52,8 @@ const Characters = () => {
           </ListGroup>
         </Col>
         <Col>
-          <Pagination className='d-flex m-auto mb-2' style={{width:'600px'}} >
+          <Pagination className='d-flex m-auto mb-2' style={{width:'100%'}} >
+
             <Pagination.Prev onClick={pageprev} />
             <Pagination.Item className='text-center' style={{ width: "100%" }} active >Pokemons {countdo ? countdo : 1} to {countup} </Pagination.Item>
             <Pagination.Next onClick={pagenext} />
