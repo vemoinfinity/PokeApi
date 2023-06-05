@@ -22,10 +22,11 @@ const CharacterDetail = () => {
   return (
     <Container className='m-auto mt-3'>
       <ThemeSup />
+    <Row xs={2}>
       <div className="pokegrid" style={{ backgroundColor: `var(--${datos1})` }}>
         <Card.Img src='../src/img/pokeback.webp' />
         <Card.ImgOverlay>
-          <Row xs={2}>
+          
             <Col xs={4} lg={4}>
               <Card.Title className='d-flex justify-content-end' >
                 <h2 className='text-center flex-grow-1'>#{pokeunits.order}</h2>
@@ -52,9 +53,10 @@ const CharacterDetail = () => {
                 <StatsPoke data={stats} />
               }
             </Col>
-          </Row>
+          
         </Card.ImgOverlay>
       </div>
+      </Row>
       <ThemeBot />
     </Container>
   );
