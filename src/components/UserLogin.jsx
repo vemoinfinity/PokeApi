@@ -17,7 +17,7 @@ const UserLogin = () => {
       <ThemeSup/>
       <div className="pokegrid">     
           <h1 className='d-flex justify-content-center'>Welcome To Pokedex</h1>      
-            <Form className='d-flex m-auto mb-2' style={{width:'500px'}} onSubmit={handleSubmit(submit)}>
+            <Form className='d-flex m-auto mb-2' onSubmit={handleSubmit(submit)}>
               <Form.Control
                 {...register("name", {
                   required: true,
