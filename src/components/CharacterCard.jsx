@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { Card, CardImg } from 'react-bootstrap';
 import backpokemon from '../img/Pokemon-Card.webp'
+import backCard from '../img//backpokecard.jpg'
 import StatsPoke from './StatsPoke';
 import AbilitiesPoke from './AbilitiesPoke';
 import TypePo from './TypePo';
@@ -39,7 +40,7 @@ const CharacterCard = ({ url }) => {
               ))
             }
         </Card.Title>
-            <Card.Img src='../src/img/backpokecard.jpg' style={{ width: '241px', height: '154px',marginTop:'9px',marginLeft:'20px',borderRadius:'55px',borderStyle:'inset',borderColor:`var(--${datos1})` }}/>
+            <Card.Img src={backCard} style={{ width: '241px', height: '154px',marginTop:'9px',marginLeft:'20px',borderRadius:'55px',borderStyle:'inset',borderColor:`var(--${datos1})` }}/>
         <Card.ImgOverlay>
         <Card.Img className='m-5' style={{ width: '230px', height: '160px'}}
           src={character.sprites?.other.home.front_default ?
