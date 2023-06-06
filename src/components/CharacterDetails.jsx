@@ -6,6 +6,7 @@ import StatsPoke from './StatsPoke';
 import TypePo from './TypePo';
 import ThemeSup from '../themes/ThemeSup';
 import ThemeBot from '../themes/ThemeBot';
+import backCard from '../src/img/pokeback.webp'
 const CharacterDetail = () => {
   const [datos, setDatos] = useState('')
   const [datos1, setDatos1] = useState('')
@@ -23,7 +24,7 @@ const CharacterDetail = () => {
     <Container className='m-auto mt-3  '>
       <ThemeSup />
       <Card className="pokegrid " >
-        <Card.Img src='../src/img/pokeback.webp' />
+        <Card.Img src={backCard} />
         <Card.ImgOverlay className='d-flex align-items-center'>
           <Row className=' my-auto' xs={6}lg={4}>
             <Col  xs={5} lg={4}>
