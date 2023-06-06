@@ -6,7 +6,7 @@ import StatsPoke from './StatsPoke';
 import TypePo from './TypePo';
 import ThemeSup from '../themes/ThemeSup';
 import ThemeBot from '../themes/ThemeBot';
-import backCard from '../src/img/pokeback.webp'
+import backCard from '../img/pokeback.webp'
 const CharacterDetail = () => {
   const [datos, setDatos] = useState('')
   const [datos1, setDatos1] = useState('')
