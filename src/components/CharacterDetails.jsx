@@ -20,46 +20,45 @@ const CharacterDetail = () => {
     }, 100);
   }
   return (
-    <Container className='m-auto mt-3'>
-    <Row>
+    <Container className='m-auto mt-3  '>
       <ThemeSup />
-
-      <div className="pokegrid" style={{ backgroundColor: `var(--${datos1})` }}>
+      <Card className="pokegrid " >
         <Card.Img src='../src/img/pokeback.webp' />
-        <Card.ImgOverlay>
-          
-            <Col xs={4} lg={4}>
+        <Card.ImgOverlay className='d-flex align-items-center'>
+          <Row className=' my-auto' xs={6}lg={4}>
+            <Col  xs={5} lg={4}>
               <Card.Title className='d-flex justify-content-end' >
                 <h2 className='text-center flex-grow-1'>#{pokeunits.order}</h2>
                 {types &&
                   types.map(typ => (
                     <TypePo key={typ.type.name} data={typ.type.name} type={colorT} />
-                  ))
-                }
+                    ))
+                  }
               </Card.Title>
+              <Card lg='300px'style={{ backgroundColor: `var(--${datos1})` }}>
               <Card.Img
                 src={pokeunits.sprites?.other.home.front_default ?
                   pokeunits.sprites?.other.home.front_default :
                   pokeunits.sprites?.front_default} alt='imag pokemon disable' />
-            </Col>
-            <Col xs={8} lg={6}>
+                  </Card>
+                </Col>
+                <Col xs={7} lg={8}>
               <Card.Body>
                 {abilities &&
                   abilities.map(abilitis => (
                     <DescriptionPoke key={abilitis.ability.url} url={abilitis.ability.url} />
-                  ))
-                }
+                    ))
+                  }
               </Card.Body>
               {stats &&
                 <StatsPoke data={stats} />
               }
-            </Col>
-          
+               </Col>
+              </Row>
         </Card.ImgOverlay>
-
-      </div>
+      </Card>
       <ThemeBot />
-      </Row>
+      
     </Container>
   );
 };
