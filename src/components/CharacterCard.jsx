@@ -36,7 +36,7 @@ const CharacterCard = ({ url }) => {
           <p className='text-center flex-grow-1' style={{ fontSize: '13px', margin: '0px', paddingTop: '6px' }}>{character.name}</p>
           {types &&
             types.map(typ => (
-              <TypePo key={typ.type.name} data={typ.type.name} type={colorT} />
+              <TypePo key={typ.type.name} data={typ.type.name} type={colorT} width='28'height='28' />
               ))
             }
         </Card.Title>
@@ -52,11 +52,11 @@ const CharacterCard = ({ url }) => {
         </p>
         <Card.Body className='d-flex' style={{ padding: '3px' }}>
           {abilities &&
-            <AbilitiesPoke abilities={abilities} />
+            <AbilitiesPoke abilities={abilities} fontSizeA='17'fontSizeDescrip='13'/>
           }
         </Card.Body>
         {stats &&
-          <StatsPoke data={stats} />
+          <StatsPoke data={stats} width="20" height="20" heightbar='5' />
         }
       </Card.ImgOverlay>
     </Card>

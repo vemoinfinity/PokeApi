@@ -32,7 +32,7 @@ const CharacterDetail = () => {
                 <h2 className='text-center flex-grow-1'>#{pokeunits.order}</h2>
                 {types &&
                   types.map(typ => (
-                    <TypePo key={typ.type.name} data={typ.type.name} type={colorT} />
+                    <TypePo key={typ.type.name} data={typ.type.name} type={colorT} width='40'height='40'/>
                     ))
                   }
               </Card.Title>
@@ -52,7 +52,7 @@ const CharacterDetail = () => {
                   }
               </Card.Body>
               {stats &&
-                <StatsPoke data={stats} />
+                <StatsPoke data={stats} width="50" height="50" heightbar='9' fontSize='20'/>
               }
                </Col>
               </Row>
