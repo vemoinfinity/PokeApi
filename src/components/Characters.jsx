@@ -1,14 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import CharacterCard from './CharacterCard';
 import { Button, CardGroup, Col, Container, Dropdown, Form, ListGroup, Pagination, Row } from 'react-bootstrap';
 import usePokeApi from '../hooks/usePokeApi';
 import useSearchNavi from '../hooks/useSearchNavi';             
 import { useForm } from 'react-hook-form';
+import CharacterCard from './CharacterCard';
 
 
 const Characters = () => {
-  const name = useSelector(state => (state.userName))
+  const name = useSelector(state => state.userName)
   const { characters, locationList, countup, countdo, pagenext, pageprev, searchTerm } = usePokeApi()
   const { searchName, searchLocation, pokeDetails } = useSearchNavi()
   const { register, formState: { errors }, handleSubmit, } = useForm();
