@@ -1,68 +1,76 @@
-import React, { useState } from 'react';
-import { Card, Col, Container, Row } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
 import usePokeApi from '../hooks/usePokeApi';
 import DescriptionPoke from './DescriptionPoke';
 import StatsPoke from './StatsPoke';
 import TypePo from './TypePo';
-import ThemeSup from '../themes/ThemeSup';
-import ThemeBot from '../themes/ThemeBot';
-import backCard from '../img/pokeback.webp'
+import { typeColors } from './pokemonTypes';
+import back from '../img/pokeback.webp'
+
 const CharacterDetail = () => {
-  const [datos, setDatos] = useState('')
-  const [datos1, setDatos1] = useState('')
-  const { pokeunits } = usePokeApi()
-  const abilities = pokeunits.abilities
-  let stats = pokeunits.stats
-  let types = pokeunits.types
-  const colorT = (dato) => {
-    setTimeout(() => {
-      setDatos(dato)
-      setDatos1(types[0]?.type.name)
-    }, 100);
-  }
+  const [backgroundColor, setBackgroundColor] = useState('bg-gray-100');
+  const { pokeunits } = usePokeApi();
+  const abilities = pokeunits.abilities || [];
+  const stats = pokeunits.stats || [];
+  const types = pokeunits.types || [];
+
+  useEffect(() => {
+    if (types.length > 0) {
+      const primaryType = types[0].type.name.toLowerCase();
+      setBackgroundColor(typeColors[primaryType] || 'bg-gray-100');
+    }
+  }, [types]);
+
   return (
-    <Container className='m-auto mt-3  '>
-      <ThemeSup />
-      <Card className="pokegrid " >
-        <Card.Img src={backCard} />
-        <Card.ImgOverlay className='d-flex align-items-center'>
-          <Row className=' my-auto' xs={6}lg={4}>
-            <Col  xs={5} lg={4}>
-              <Card.Title className='d-flex justify-content-end' >
-                <h2 className='text-center flex-grow-1'>#{pokeunits.order}</h2>
-                {types &&
-                  types.map(typ => (
-                    <TypePo key={typ.type.name} data={typ.type.name} type={colorT} width='40'height='40'/>
-                    ))
-                  }
-              </Card.Title>
-              <Card lg='300px'style={{ backgroundColor: `var(--${datos1})` }}>
-              <Card.Img
-                src={pokeunits.sprites?.other.home.front_default ?
-                  pokeunits.sprites?.other.home.front_default :
-                  pokeunits.sprites?.front_default} alt='imag pokemon disable' />
-                  </Card>
-                </Col>
-                <Col xs={7} lg={8}>
-              <Card.Body>
-                {abilities &&
-                  abilities.map(abilitis => (
-                    <DescriptionPoke key={abilitis.ability.url} url={abilitis.ability.url} />
-                    ))
-                  }
-              </Card.Body>
-              {stats &&
-                <StatsPoke data={stats} width="50" height="50" heightbar='9' fontSize='20'/>
-              }
-               </Col>
-              </Row>
-        </Card.ImgOverlay>
-      </Card>
-      <ThemeBot />
-      
-    </Container>
+    <div className={`min-h-screen ${backgroundColor} transition-colors duration-500 py-10`}>
+      <div className="container mx-auto px-4">
+        <div className={` bg-cover bg-center rounded-3xl shadow-2xl overflow-hidden`} style={{ backgroundImage: `url(${back})` }}>
+          <div className={`${backgroundColor} p-6 flex justify-between items-center`}>
+            <h1 className="text-4xl font-bold capitalize text-white">{pokeunits.name}</h1>
+            <h2 className="text-3xl font-bold text-white">#{pokeunits.order}</h2>
+          </div>
+          
+          <div className="p-6 grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-1 flex flex-col justify-center">
+              <div className={`rounded-3xl overflow-hidden ${backgroundColor} bg-opacity-70 p-8 shadow-inner`}>
+                <img
+                  src={pokeunits.sprites?.other.home.front_default || pokeunits.sprites?.front_default}
+                  alt={`${pokeunits.name} sprite`}
+                  className="w-full h-auto object-contain transform hover:scale-110 transition-transform duration-300"
+                />
+              </div>
+              <div className="mt-6 flex justify-center space-x-4">
+                {types.map(typ => (
+                  <TypePo 
+                    key={typ.type.name} 
+                    data={typ.type.name} 
+                    type={() => {}} 
+                    width={60} 
+                    height={60} 
+                  />
+                ))}
+              </div>
+            </div>
+            
+            <div className="lg:col-span-2 space-y-8">
+              <div className={`${backgroundColor} bg-opacity-70 rounded-2xl p-6 shadow-md`}>
+                <h3 className="text-2xl font-semibold mb-4">Abilities</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {abilities.map(ability => (
+                    <DescriptionPoke key={ability.ability.url} url={ability.ability.url} />
+                  ))}
+                </div>
+              </div>
+              
+              <div className={`${backgroundColor} bg-opacity-70 rounded-2xl p-6 shadow-md`}>
+                <h3 className="text-2xl font-semibold mb-4">Stats</h3>
+                {stats && <StatsPoke data={stats} width={50} height={50} heightbar={9} fontSize={16} />}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 
 export default CharacterDetail;
-

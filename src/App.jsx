@@ -5,12 +5,13 @@ import ProtectedRoutes from './components/ProtectedRoutes';
 import Characters from './components/Characters';
 import Areas from './components/Areas';
 import CharacterDetails from './components/CharacterDetails';
-import { Container } from 'react-bootstrap';
+import './index.css'
+import back from './img/city.jpg'
 function App() {
   return (
     <HashRouter >
 
-      <Container className="App">
+      <div className="App" style={{ backgroundImage: `url(${back})` }}>
         <Routes>
           <Route path="/" element={<UserLogin />} />
           <Route element={<ProtectedRoutes />}>
@@ -20,7 +21,7 @@ function App() {
           </Route>
         </Routes>
 
-      </Container>
+      </div>
 
     </HashRouter>
   )

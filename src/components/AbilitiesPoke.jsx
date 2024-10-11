@@ -1,20 +1,23 @@
 import React from 'react';
-import { Col, Row } from 'react-bootstrap';
 
-const AbilitiesPoke = ({ abilities,fontSizeA,fontSizeDescrip }) => (
-  <Row>
-    <div className='d-flex'>
-      <Col>
-        <b style={{ fontSize: fontSizeA+'px', color: 'red' }} >Abilitys:</b>
-      </Col>
-      <Col lg={8}xs={8}>
-        {abilities.map(abilitys => (
-          <p className='mx-3' key={abilitys.ability.name} style={{ fontSize: fontSizeDescrip+'px', margin: '0px' }} >{abilitys.ability.name}</p>
-        ))}
-      </Col>
+const AbilitiesPoke = ({ abilities, fontSizeA, fontSizeDescrip }) => {
+  return (
+    <div className="space-y-2">
+      {abilities.map((ability) => (
+        <div
+          key={ability.ability.name}
+          className="bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg p-2 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105"
+        >
+          <h4 className={`text-white font-bold mb-1 ${fontSizeA}`}>
+            {ability.ability.name}
+          </h4>
+          <p className={`text-gray-200 ${fontSizeDescrip}`}>
+            {ability.is_hidden ? 'Hidden Ability' : 'Regular Ability'}
+          </p>
+        </div>
+      ))}
     </div>
-  </Row>
-);
-
+  );
+};
 
 export default AbilitiesPoke;
